@@ -14,10 +14,3 @@
         sno_instance_count: "{{ workshop_instances }}"
         sno_workshops_namespace: "{{ workshops_namespace }}"
         sno_region: "{{ sno_workshop_region }}"
-- name: Copy kubeconfig to each ec2 instance
-  hosts: ec2instances
-  roles:
-    - role: kubeconfig
-      vars:
-        kubeconfig_bucket_name: "exe-workshop-{{ workshop_name }}"
-      when: not teardown
